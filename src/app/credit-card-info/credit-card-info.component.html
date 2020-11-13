@@ -1,0 +1,10 @@
+<div class="container">
+    <div [formGroup]="creditCardForm" >
+        <input type="text" (keyup)='creditCardNumber($event)' formControlName='cardNumber'   maxlength="19" placeholder="Card Number">
+        <input type="text" formControlName="cardHolderName" placeholder="Card holder name">
+        <input type="text" formControlName='expiryDate'  maxlength="7" placeholder="MM / YY">
+        <input type="text"  formControlName='cvv'  maxlength="4" placeholder="CVV">
+        <input type="text"  formControlName='price'  maxlength="4" placeholder="CVV">
+        <input class="btn btn-primary" type='submit' (click)='saveData()'>Save
+    </div>
+</div>
