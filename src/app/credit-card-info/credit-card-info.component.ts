@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CreditCard } from './credit-card.model';
 import { DtoService } from './dto-service.service';
 
@@ -11,24 +11,20 @@ import { DtoService } from './dto-service.service';
 export class CreditCardInfoComponent implements OnInit {
   
   creditCardForm:FormGroup=new FormGroup({
-    cardNumber:new FormControl(''),
-    cardHolderName:new FormControl(''),
-    expiryDate: new FormControl(''),
+    cardNumber:new FormControl('',[Validators.required]),
+    cardHolderName:new FormControl('',[Validators.required]),
+    expiryDate: new FormControl('',[Validators.required]),
     cvv:new FormControl(''),
     price:new FormControl('')
 
   })
   creditCardData:CreditCard;
-
+  todayDate:Date=new Date();
   constructor(private dtoService:DtoService) {}
 
-  creditCardNumber(eve):void{
-    if(eve.target.value.length%4===0){
-      this.creditCardForm.controls.cardNumber.setValue(eve.target.value+' ')
-    }
+  ngOnInit(){
+    
   }
-
-  ngOnInit(){}
 
   saveData():void{
     let cardInfo:CreditCard = new CreditCard(

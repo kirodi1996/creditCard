@@ -6,7 +6,5 @@ export class CreditCard {
       public securityCode:string,
       public amount:number
     ) {}
-  
- 
   }
   

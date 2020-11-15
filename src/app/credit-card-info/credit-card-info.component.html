@@ -1,10 +1,64 @@
-<div class="container">
-    <div [formGroup]="creditCardForm" >
-        <input type="text" (keyup)='creditCardNumber($event)' formControlName='cardNumber'   maxlength="19" placeholder="Card Number">
-        <input type="text" formControlName="cardHolderName" placeholder="Card holder name">
-        <input type="text" formControlName='expiryDate'  maxlength="7" placeholder="MM / YY">
-        <input type="text"  formControlName='cvv'  maxlength="4" placeholder="CVV">
-        <input type="text"  formControlName='price'  maxlength="4" placeholder="CVV">
-        <input class="btn btn-primary" type='submit' (click)='saveData()'>Save
+<div class="main-wrapper">
+    <div class="container max-w-600 bg-white rounded-lg mar-t-4 shadow-sm p-5">
+        <h4>Payment</h4>
+        <hr>
+
+        <div [formGroup]="creditCardForm">
+            <div class="form-group">
+                <label for="username">Full name (on the card)</label>
+                <input type="text" class="form-control" formControlName="cardHolderName" placeholder="Card holder name">
+            </div>
+
+            <div class="form-group">
+                <label for="cardNumber">Card number</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" mask="0000 0000 0000 0000"
+                         formControlName='cardNumber' maxlength="19"
+                        placeholder="Card Number">
+                    <div class="input-group-append">
+                        <span class="input-group-text text-muted">
+                            <i class="fa fa-cc-visa mx-1"></i>
+                            <i class="fa fa-cc-amex mx-1"></i>
+                            <i class="fa fa-cc-mastercard mx-1"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label><span class="hidden-xs">Expiration</span></label>
+                        <div class="input-group">
+                            <p-calendar  view="month" formControlName='expiryDate' pi pi-calendar monthNavigator='true' [minDate]='todayDate' dateFormat="mm/yy" [yearNavigator]="true" yearRange="2020:2050"></p-calendar>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <div class="form-group mb-4">
+                        <label data-toggle="tooltip" title="Three-digits code on the back of your card">CVV
+                            <i class="fa fa-question-circle"></i>
+                        </label>
+                        <input type="text" class="form-control" mask="000" formControlName='cvv' maxlength="3"
+                            placeholder="CVV">
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group mb-4">
+                        <label data-toggle="tooltip" title="Three-digits code on the back of your card">Price
+                            <i class="fa fa-question-circle"></i>
+                        </label>
+                        <input type="text" class="form-control" formControlName='price' maxlength="4"
+                            placeholder="Price">
+                    </div>
+                </div>
+                <button type='submit' (click)='saveData()' type="button"
+                    class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"> Confirm 
+                </button>
+            </div>
+        </div>
     </div>
 </div>
