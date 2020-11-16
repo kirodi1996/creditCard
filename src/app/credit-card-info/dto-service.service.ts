@@ -11,11 +11,11 @@ export class DtoService {
 
   constructor(private http: HttpClient) {}
 
-  storeRecipes(data:CreditCard):Observable<any> {
+  storeCardInfo(data:CreditCard):Observable<any> {
     
     return this.http
       .post(
-        `${environment.databaseURL}`+'/recipes.json',
+        `${environment.databaseURL}`+'/cardInfo.json',
         data
       )
   }

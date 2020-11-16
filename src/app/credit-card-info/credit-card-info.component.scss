@@ -1,5 +1,5 @@
-.mar-t-4 {
-  margin-top: 3.5rem;
+.mar-b-4 {
+  margin-bottom: 3.5rem;
 }
 
 .max-w-600 {
@@ -97,4 +97,26 @@
 .logo__visa svg {
   width: 15vw;
   height: auto;
+}
+:host ::ng-deep .p-calendar {
+  width: 100%;
+}
+:host ::ng-deep {
+  .expire-date.ng-touched.ng-invalid {
+      .p-calendar {
+          .p-inputtext {
+              border: 1px solid #d70000;
+          }
+      }
+  }
+}
+
+.expire-date {
+  width: 100%;
+}
+
+.loading{
+  position: fixed;
+    top: 11rem;
+    left: 32rem;
 }

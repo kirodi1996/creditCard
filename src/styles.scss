@@ -5,3 +5,12 @@
 body {
     background-color: #ececec !important;
 }
+
+input.ng-touched.ng-invalid {
+    border: 1px solid #d70000;
+}
+
+.error {
+    font-size: 14px;
+    color: #d70000;
+}

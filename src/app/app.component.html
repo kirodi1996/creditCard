@@ -1,1 +1,5 @@
-<app-credit-card-info></app-credit-card-info>
+<button (click)="goToPayment()" *ngIf="!isBackEnabled" class="navigation-btn btn btn-outline-success" type="button">Go To Payment</button>
+<button *ngIf="isBackEnabled" (click)="backToHome()" class="navigation-btn btn btn-outline-secondary" type="button">Back To Home</button>
+
+<router-outlet></router-outlet>
+<!-- <app-credit-card-info></app-credit-card-info> -->
